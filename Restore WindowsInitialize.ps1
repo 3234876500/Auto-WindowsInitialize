@@ -32,9 +32,8 @@ Write-Host (Format-CenterText -Text "Start Optimize Windows Apps")
 # About WindowsDevice
 Write-Host (Format-CenterText -Text "Start Optimize Windows Devices")
 powercfg -h on
-
 Set-NetFirewallProfile -Enabled True
-Ensable-MMAgent -PageCombining
+Enable-MMAgent -PageCombining
 Enable-MMAgent -MemoryCompression
 Disable-MMAgent -ApplicationPreLaunch
 Set-MMAgent -MaxOperationAPIFiles 256
@@ -43,7 +42,6 @@ bcdedit /deletevalue useplatformclock
 bcdedit /deletevalue useplatformtick
 bcdedit /deletevalue disabledynamictic
 netsh winsock reset
-
 
 # About WindowsService
 Write-Host (Format-CenterText -Text "Start Optimize Windows Services")
@@ -101,4 +99,5 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Mem
 Write-Host (Format-CenterText -Text "!!!The End!!!")
 Write-Host (Format-CenterText -Text $Script_Name) -ForegroundColor Red
 Write-Host (Format-CenterText -Text "Author:",$Script_Author) -ForegroundColor Green
+
 pause
